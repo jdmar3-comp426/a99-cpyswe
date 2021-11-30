@@ -5,10 +5,11 @@ window.addEventListener("load", function () {
 
     function hideElements(){
         document.getElementById("begin").style.display="None";
-
+        document.getElementById("dataPlace").style.display="None";
     }
     function showElements(){
         document.getElementById("begin").style.display="block";
+        document.getElementById("dataPlace").style.display="block";
     }
     hideElements();
 
@@ -93,8 +94,23 @@ window.addEventListener("load", function () {
             document.getElementById("login").value = "Login";
             this.reset();
             showLogin();
+            document.getElementById("profileData").innerHTML = ``
+
         } else {
             getUserdata(this);
+        }
+    });
+
+
+    const showData = document.getElementById("showData");
+    showData.addEventListener("click", function(event){
+        event.preventDefault();
+        if(loggedIn){
+            document.getElementById("profileData").innerHTML = `Username: ${thisUser.user}, 
+            Email: ${thisUser.email}, 
+            Highest Score: ${thisUser.highestScore}`
+        } else {
+            alert("You must log in to see profile!")
         }
     });
 
