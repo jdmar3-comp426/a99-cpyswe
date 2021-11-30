@@ -46,8 +46,6 @@ window.addEventListener("load", function () {
         sendData();
     });
 
-
-
     function getUserdata( form ) {
         const sendRequest = new XMLHttpRequest();
         const userInfo = new URLSearchParams(new FormData( form ));
