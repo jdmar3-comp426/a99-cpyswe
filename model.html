@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <title>Document</title>
+        <link rel="stylesheet" href="/game.css">
         <style>
            #brickboard{width: 100px; height: 30px; background-color: rosybrown; position: absolute; bottom: 0px; left: 250px}
            #ball{width: 20px; height: 20px; background-color: cyan; border-radius: 50%; position: absolute; bottom: 20px; left: 220px}
@@ -13,7 +14,9 @@
         </style>
 
         <div>
-            <p>Your Score: <span id="myScore"></span></p>
+            <div class = "score">
+                <p>Your Score: <span id="myScore"></span></p>
+            </div>
             <script>
                 window.myGlobal = 0;
                 document.getElementById("myScore").innerHTML = window.myGlobal;
@@ -136,7 +139,7 @@
             }
         </script>
     </head>
-    <body>
+    <body style="background-color:midnightblue;">
         <div id = 'div1'>
             <div id = 'ball'></div>
             <div id = 'brickboard'></div>
@@ -144,7 +147,7 @@
 
         </div>
 
-        <div>
+        <div class = "button">
             <p><a href="index.html" class="button" target="_top">Log Out</a></p>
         </div>
 
