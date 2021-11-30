@@ -4,6 +4,37 @@
     <title>Sun</title>
     <link rel="stylesheet" href="/styles.css">
     <script src="forms.js"></script>
+    <style>
+        .login-form {
+            width: 300px;
+            margin: 0 auto;
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 24px;
+            padding: 20px 0 20px 0;
+        }
+        .login-form input[type="myPass"],
+        .login-form input[type="username"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing:border-box;
+        }
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #535b63;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,31 +43,27 @@
 <h2 id="title">This is a myth story!</h2>
 <h3 id="register">New User Register:</h3>
 
+<div class = "login-form">
+    <h1>Register Form</h1>
+    <form id="myForm">
+        <input type="username" id="myUserName" name="user" placeholder = "Username" value="">
+        <input type="myPass" id="myEmail" name="email" placeholder = "Eamil" value="">
+        <input type="myPass" id="pass" placeholder = "Password" name="pass" value="">
+        <input type="submit" value="Register Now!">
+    </form>
+</div>
 
+<div class = "login-form">
+    <h1 id="loginmessage">Login</h1>
+    <form id="loginForm">
+        <div id="credentials">
+            <input class="input is-small" type="username" placeholder="Username" id="user" name="user" value="">
+            <input class= "input is-small" type="myPass" placeholder="Password" id="pass" name="pass" value="">
+        </div>
+        <input class="button is-info" type="submit" value="Login" id="login">
+    </form>
 
-<form id="myForm">
-    <label for="myUserName">Your username: </label> 
-    <input id="myUserName" name="user" value="">
-    <label for="myEmailAddress">Your Email Address: </label> 
-    <input id="myEmail" name="email" value="">
-    <label for="myPass">Set Password: </label> 
-    <input type="myPass" id="pass" name="pass" value="">
-    <input type="submit" value="Register Now!">
-</form>
-
-<h2 id="greeting"></h2>
-<h1 id="loginmessage">Login</h1>
-<form id="loginForm">
-    <div id="credentials">
-        <label for="user">Username:</label>
-        <input class="input is-small" type="user" id="user" name="user" value="">
-        <label for="pass">Password:</label> 
-        <input class= "input is-small" type="password" id="pass" name="pass" value="">
-    </div>
-    <input class="button is-info" type="submit" value="Login" id="login">
-</form>
-
-<p><a href="model.html" class="button" target="_top" id="begin">Begin Your Game!</a></p>
+    <p><a href="model.html" class="button" target="_top" id="begin">Begin Your Game!</a></p>
 
 </div>
 

@@ -47,6 +47,7 @@ window.addEventListener("load", function () {
             if (this.readyState == 4 && this.status == 200) {
                 thisUser = JSON.parse(sendRequest.response);
                 if(loggedIn){
+                    alert("Login successful!")
                     thisUser = null;
                     loggedIn = false;
                     document.getElementById("login").value = "Login";
