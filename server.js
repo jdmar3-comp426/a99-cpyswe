@@ -66,12 +66,14 @@ app.delete("/app/delete/user/:id", (req, res) => {
 
 // READ a single user (HTTP method GET) at endpoint /app/login/user
 app.post("/app/login/user", (req, res) => {	
-    var data = {
-		user: req.body.user,
-		pass: req.body.pass ? md5(req.body.pass) : null
+
+	const stmt = db.prepare("SELECT * FROM userinfo WHERE user = ? AND pass = ?").get(req.body.user, md5(req.body.pass));
+	if (md5(req.body.pass).length == 0) {
+		res.status(404);
+	} else{
+		res.status(200).json(stmt);
 	}
-	const stmt = db.prepare("SELECT * FROM userinfo WHERE user = ? AND pass = ?").get(data.user, data.pass);
-	res.status(200).json(stmt);
+	
 });
 
 

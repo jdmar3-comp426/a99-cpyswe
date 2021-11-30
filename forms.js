@@ -11,6 +11,18 @@ window.addEventListener("load", function () {
         document.getElementById("begin").style.display="block";
     }
     hideElements();
+
+    function hideLogin() {
+        document.getElementById("logUser").style.display = "None";
+        document.getElementById("logPass").style.display = "None";
+    }
+    
+    function showLogin() {
+        document.getElementById("logUser").style.display = "block";
+        document.getElementById("logPass").style.display = "block";
+    }
+    
+    
     function sendData() {
         const XHR = new XMLHttpRequest();
               FD = new URLSearchParams(new FormData( form ));
@@ -39,19 +51,16 @@ window.addEventListener("load", function () {
     function getUserdata( form ) {
         const sendRequest = new XMLHttpRequest();
         const userInfo = new URLSearchParams(new FormData( form ));
-        sendRequest.addEventListener("error", function(event){
-            alert('Accessing users unsuccessful! Please try again.');
-        });
+
 
         sendRequest.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 thisUser = JSON.parse(sendRequest.response);
                 if(loggedIn){
-                    alert("Login successful!")
+                    
                     thisUser = null;
                     loggedIn = false;
                     document.getElementById("login").value = "Login";
-                    document.getElementById("greeting").innerHTML = thisUser;
 
                     hideElements()
                     alert("Logging Out");
@@ -62,8 +71,12 @@ window.addEventListener("load", function () {
 
                     showElements();
                     alert("Login successful!")
+                    hideLogin();
                 }
+            } else if ( this.status != 200 ) {
+                alert("Bad Credential! (If Login successful message pop up next, you are good!)")
             }
+           
         }
         sendRequest.open("POST", "http://localhost:5000/app/login/user");
         sendRequest.send( userInfo );
@@ -75,14 +88,13 @@ window.addEventListener("load", function () {
     selfUser.addEventListener("submit", function(event){
         event.preventDefault();
         if(loggedIn){
-            alert("Logging Out");
-            // document.getElementById("loggedInUser").classList.add("hide-on-logout");
+            alert("Logged Out");
             hideElements()
             thisUser = null;
             loggedIn = false;
             document.getElementById("login").value = "Login";
-            document.getElementById("greeting").innerHTML = thisUser;
             this.reset();
+            showLogin();
         } else {
             getUserdata(this);
         }
