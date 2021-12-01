@@ -1,15 +1,17 @@
 window.addEventListener("load", function () {
 
-    var loggedIn;
-    var thisUser = null;
+    var isLogIn;
+    var current = null;
 
     function hideElements(){
         document.getElementById("begin").style.display="None";
         document.getElementById("dataPlace").style.display="None";
+        document.getElementById("updateForm").style.display="None";
     }
     function showElements(){
         document.getElementById("begin").style.display="block";
         document.getElementById("dataPlace").style.display="block";
+        document.getElementById("updateForm").style.display="block";
     }
     hideElements();
 
@@ -54,26 +56,27 @@ window.addEventListener("load", function () {
 
         sendRequest.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                thisUser = JSON.parse(sendRequest.response);
-                if(loggedIn){
+                current = JSON.parse(sendRequest.response);
+                if(isLogIn){
                     
-                    thisUser = null;
-                    loggedIn = false;
+                    current = null;
+                    isLogIn = false;
                     document.getElementById("login").value = "Login";
 
                     hideElements()
-                    alert("Logging Out");
+                    alert("Logged Out");
                 } else {
 
                     document.getElementById("login").value = "Logout";
-                    loggedIn = true;
+                    isLogIn = true;
 
                     showElements();
                     alert("Login successful!")
                     hideLogin();
+
                 }
             } else if ( this.status != 200 ) {
-                alert("Bad Credential! (If Login successful message pop up next, you are good!)")
+                alert("Bad Credential! (If Login successful message pop up next, you are good to go!)")
             }
            
         }
@@ -86,11 +89,11 @@ window.addEventListener("load", function () {
     const selfUser = document.getElementById("loginForm");
     selfUser.addEventListener("submit", function(event){
         event.preventDefault();
-        if(loggedIn){
+        if(isLogIn){
             alert("Logged Out");
             hideElements()
-            thisUser = null;
-            loggedIn = false;
+            current = null;
+            isLogIn = false;
             document.getElementById("login").value = "Login";
             this.reset();
             showLogin();
@@ -101,17 +104,37 @@ window.addEventListener("load", function () {
         }
     });
 
+    function updateInfo( form ) {
+        const XHR = new XMLHttpRequest();
+        var FD = new URLSearchParams(new FormData( form ));
+
+        FD.append('user', current.user);
+
+        XHR.addEventListener("load", function(event){
+            alert('Info Updated!');
+        });
+
+        XHR.open("PATCH", "http://localhost:5000/app/update/user");
+        XHR.send( FD );
+    }
+
+    const newData = document.getElementById("updateinfo");
+
+    newData.addEventListener("submit", function(event){
+
+        event.preventDefault();
+        updateInfo(this);
+
+    });
+
 
     const showData = document.getElementById("showData");
     showData.addEventListener("click", function(event){
         event.preventDefault();
-        if(loggedIn){
-            document.getElementById("profileData").innerHTML = `Username: ${thisUser.user}, 
-            Email: ${thisUser.email}, 
-            Highest Score: ${thisUser.highestScore}`
-        } else {
-            alert("You must log in to see profile!")
-        }
+        document.getElementById("profileData").innerHTML = `Username: ${current.user}, 
+        Email: ${current.email}, 
+        Highest Score: ${current.highestScore}`
+
     });
 
     
