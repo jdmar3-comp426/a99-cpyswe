@@ -7,11 +7,13 @@ window.addEventListener("load", function () {
         document.getElementById("begin").style.display="None";
         document.getElementById("dataPlace").style.display="None";
         document.getElementById("updateForm").style.display="None";
+        document.getElementById("deleteAcc").style.display="None";
     }
     function showElements(){
         document.getElementById("begin").style.display="block";
         document.getElementById("dataPlace").style.display="block";
         document.getElementById("updateForm").style.display="block";
+        document.getElementById("deleteAcc").style.display="block";
     }
     hideElements();
 
@@ -127,6 +129,29 @@ window.addEventListener("load", function () {
 
     });
 
+    function deleteUser(form) {
+        const XHR = new XMLHttpRequest();
+        var FD = new URLSearchParams(new FormData( form ));
+
+
+        FD.append('user', current.user);
+        const te = document.getElementById("test");
+        te.innerHTML =`${FD}`
+
+        XHR.addEventListener("load", function(event){
+            alert('Account Deleted!');
+        });
+
+        XHR.open("DELETE", "http://localhost:5000/app/delete/user");
+        XHR.send( FD );
+
+    }
+
+    const deleted = document.getElementById("deleteAcc");
+    deleted.addEventListener("submit", function(event) {
+        event.preventDefault();
+        deleteUser(this);
+    });
 
     const showData = document.getElementById("showData");
     showData.addEventListener("click", function(event){
