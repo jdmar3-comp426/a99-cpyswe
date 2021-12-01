@@ -132,11 +132,7 @@ window.addEventListener("load", function () {
     function deleteUser(form) {
         const XHR = new XMLHttpRequest();
         var FD = new URLSearchParams(new FormData( form ));
-
-
         FD.append('user', current.user);
-        const te = document.getElementById("test");
-        te.innerHTML =`${FD}`
 
         XHR.addEventListener("load", function(event){
             alert('Account Deleted!');
