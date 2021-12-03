@@ -66,6 +66,12 @@ app.delete("/app/delete/user", (req, res) => {
 	res.status(200).json({"message":"1 record deleted: ID 2 (200)"});
 });
 
+app.patch("/app/recordscore/user", (req, res) =>  {
+
+	const stmt = db.prepare("UPDATE userinfo SET highest= COALESCE(?,highest) WHERE user = ?").run(req.body.highest, req.body.user)
+	res.status(200).json({"message":`1 record updated: User ${req.body.user} (200)`});
+});
+
 // app/login/user
 app.post("/app/login/user", (req, res) => {	
 

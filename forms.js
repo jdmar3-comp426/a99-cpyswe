@@ -158,5 +158,34 @@ window.addEventListener("load", function () {
 
     });
 
+    function recordHigh (form) {
+        alter("GGGGGG");
+        const XHR = new XMLHttpRequest();
+        var FD = new URLSearchParams(new FormData( form ));
+        FD.append('user', current.user);
+
+        document.getElementById("sss").innerHTML = `${FD}`;
+        XHR.open("PATCH", "http://localhost:5000/app/recordscore/user");
+        XHR.send( FD );
+
+        // if (FD.highest <= current.highestScore) {
+        //     alert("Score Is Lower Than Your Highest, Not Recorded!");
+        // } else {
+        //     XHR.addEventListener("load", function(event){
+        //         alert('Score Recorded!');
+        //     });
+
+        //     XHR.open("PATCH", "http://localhost:5000/app/recordscore/user");
+        //     XHR.send( FD );
+        // }
+
+    }
+
+    const highest = document.getElementById("scoreForm");
+    highest.addEventListener("submit", function(event) {
+        event.preventDefault();
+        recordHigh(this);
+    });
+
     
 });
