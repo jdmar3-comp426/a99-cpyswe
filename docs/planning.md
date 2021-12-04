@@ -3,9 +3,9 @@
 
 # Team Role:
 
-## Taixi Lu: Backend API (Server.js/form.js)
+## Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
 TO-DOs:
-    - API endpoint for register/log in/modify/delte.
+    - API endpoint for register/log in/modify/delte and the database.
     - Connect front end to backend through forms.
 
 ## Panyi Chen: Front End Game Page Design

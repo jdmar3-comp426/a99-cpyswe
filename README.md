@@ -1,54 +1,108 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6302717&assignment_repo_type=AssignmentRepo)
-# a99 Finally
+# Pinball Game by group CPYSWE
 
-COMP426 final project template repository. All your code and documentation goes here. Change this text to be a brief description of your final project. Put the name in the header above. You will change everything below to be the main technical documentation, as outlined below.
+Check the more specific explanation page for the game nder /docs or follow the link
+[a relative link](/docs/explanations.md)
 
-## First steps
+## Game Page
 
-Other steps that you will need to take after you have cloned this repository:
+![Alt text](/images/gamePage.PNG "Game Page")
+This is a pinball game, where the player can drag the brick at the bottom. When the blue ball hit on the brick, it will reflect to the other direction. There are a total of 60 bricks on the top of the page. When the ball hit the brick on the top, it will reflect and eliminate that brick. Each brick eliminated will award the player one point. When the ball reach the bottom line without hitting the brick, the game ends. The player has to log in first to start the game.
 
-1. Choose and update the LICENSE file accordingly. 
-2. Edit this README.md file and use it as the main location of your technical documentation with links out to information contained under `/docs/`.
-3. Create a `/docs/` directory for more elaborate documentation of your API, planning notes, etc.
-4. Make sure that all of your team members have access to the repository as administrators.
-5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
-7. Assign team roles and include a listing of those roles in this README.md file or in another file under `/docs/`.
-8. Then put your entire development workflow in this repository.
-9. Use **Pull requests** to propose changes and incorporate them into your code from various team members. 
-10. Use **Issues** to identify and track bugs and also to communicate about various aspects of the project.
+## Log In Page
 
-## Team mangement
+![Alt text](/images/login.PNG "Log In Page")
+This is the log in page. It provides the user the ability to create an account and log in. There is a bug when checking log in credential. If the user input is not correct, the page works fine and alter "bad credential." But if the username and password combination is correct, the brower will alert "bad credential" and then "log in successful." We couldn't figure out how to correct this. But it seems to be a minor problem. 
 
-Plan to meet with your team ASAP.
-Talk through identifying roles within your team.
+## User Page (After Logging In)
 
-Try to figure out what each of you are good at/enjoy doing and try to work out roles that incorporate that.
+![Alt text](/images/userPage.PNG "User Page")
+This is the user page. In this page, the user has the ability to register account, log out, delte account, start new game, check personal information, and modify the account. 
 
-Some basic roles you will want to consider:
+# Installation Instruction
 
-1. A review manager - someone to review pull requests and merge or reject them and manage the related discussions
-2. A plan manager - someone to keep an eye on the overall plan and keep the project tab/to-do list up to date
-3. A documentation manager - someone to keep the documentation in order and identify what is missing and needs to be documented
-4. Roles for team members to take charge or different parts of the project. Possible roles:
-    1. Front end lead
-    2. Back end lead
-    3. Databse lead
-    4. Design lead
-    5. Etc.
+## First, make sure you installed node.js on your computer; then, follow the steps.
 
-You will notice that there are more roles than people in your group.
-That is because you will all be doing a hybrid job of managing a thing while working on other things.
+## 1. Clone the repository.
+Copy the URL for this repository and clone it in the terminal.
+    - git clone https://github.com/jdmar3-comp426/a99-cpyswe.git
 
-## Check in with instructional staff
+## 2. Open the folder in Visual Studio or open the terminal and forward into the folder.
+    - cd a99-cpyswe
 
-Once all the groups are together, we'll assign each group to an LA to check in with as you progress through the project.
+## 3. Make sure you are in the directory "a99-cpyswe" and install dependencies using "npm install"
+    - npm install
 
-We will post that so that your team can schedule a time for an initial check-in with your assigned LA. It would be a good idea also to add your LA to your repository.
+## 4. In the treminal, run "npm run start"
+    - npm run start
 
-## Assignment instructions
+## 5. Your brower should automatically pop up a new window for the game. You are good to go!
 
-And that is about all you need to get started.
+# Dependency List
 
-All the rest of the assignment instructions are available at: https://comp426.johndmart.in/assignments/99
+    "better-sqlite3": "^7.4.5",
+    "browser-sync": "^2.27.7",
+    "concurrently": "^6.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "md5": "^2.3.0"
 
-Good skill, and have fun with this!
+# Run/Play Instruction
+
+## 1. Register an account.
+
+## 2. Log in.
+
+## 3. You can choose to directly start a new game or make modification to your account. 
+
+## 4. Enjoy!
+
+# Backend API Specification
+See the linki for more specific details. [a relative link](/docs/endpoints.md)
+
+## /app/new/user
+CREATE a new user (HTTP method POST) at endpoint /app/new/
+
+Used when user register in front page.
+
+## /app/users
+READ a list of all users (HTTP method GET) at endpoint /app/users/
+
+Used when testing, and check whether the register, modify, delte, and record score work.
+
+## /app/user/:id
+READ a single user (HTTP method GET) at endpoint /app/user/:id
+
+Used when user getting their own information (Only shows username, email, and highestScore. Not including password).
+
+## /app/update/user
+UPDATE a single user (HTTP method PATCH) (the updated user is the current user that is logged in)
+
+Used when user update information. Only username, email, and password. A user cannot modify their highestScore.
+
+## /app/delete/user
+DELETE a single user (HTTP method DELETE) (the deleted user is the current user that is logged in)
+
+Used when user delete their account. Delete button only shows after logged in.
+
+## /app/recordscore/user
+UPDATE a single user's highest score (HTTP method PATCH) if the current score is higher than the highestScore in database (the updataed user is the current user that is logged in)
+
+Used when a game ends, and the user trying to record their highest score.
+
+## /app/login/user
+READ a single user (HTTP method GET) given the username and password. If the returned json is empty, than we don't have the user information in the database, so bad credential. Otherwise, logged in.
+
+Used when checking log in credentials.
+
+# Group Planning 
+
+Refer to this file under /docs for more specific information and other group planning [a relative link](/docs/planning.md)
+
+Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
+Panyi Chen: Front End Game Page Design
+Yifan Zhou: Check And Connect Frontend to Backend 
+Longtian Ye: Aesthetic Design: Make Page And Game Smooth (CSS framework)
+Rongjie Wang: Front Page & User Page Design
+
+
