@@ -88,6 +88,8 @@
                     }
                 }, 30);
             }
+            
+            // It defines how the bat would be moved 
 
             function Dragboard(node){
                 node.onmousedown = function(ev){
@@ -112,6 +114,7 @@
                 }
             }     
              
+            //  this fuction creates the bricks that the ball breaks
             
             function createBrick(n){
                 var nbrick = document.getElementById("brick");
@@ -131,11 +134,15 @@
                     Bricks[i].style.position = 'absolute';
                 }
             }
+            
+            // It will set the bricks to different colors.
 
             function randomColor(){
                 var str = "rgba(" + parseInt(Math.random()*256) + "," + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + ")";
                 return str;
             }
+            
+            // it defines how the ball will react when collides into other stuff
 
             function knock(node1, node2){
                 var h1 = node1.offsetLeft;
