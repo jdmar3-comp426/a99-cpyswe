@@ -4,28 +4,43 @@
 # Team Role:
 
 ## Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
+
 TO-DOs:
+
     - API endpoint for register/log in/modify/delte and the database.
+
     - Connect front end to backend through forms.
 
 ## Panyi Chen: Front End Game Page Design
+
 TO-DOs:
+
     - Write HTML page for the game.
+
     - Record the scores for each game.
 
 ## Yifan Zhou: Check And Connect Frontend to Backend 
+
 TO-DOs:
+
     - Modify the front end HTML page to make it connect with the API.
+
     - Debug for connection problems.
 
 ## Longtian Ye: Aesthetic Design: Make Page And Game Smooth (CSS framework)
+
 TO-DOs:
+
     - CSS documents for the user information page and game page.
+
     - Restructure HTML page to make it look better.
 
 ## Rongjie Wang: Front Page & User Page Design
+
 TO-DOs:
+
     - Design the front page.
+    
     - Design the user information page according to the id specified.
 
 

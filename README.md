@@ -59,7 +59,7 @@ Copy the URL for this repository and clone it in the terminal.
 ## 4. Enjoy!
 
 # Backend API Specification
-See the linki for more specific details. [API Endpoints](/docs/endpoint.md)
+See the link for more specific details. [API Endpoints](/docs/endpoint.md)
 
 ## /app/new/user
 CREATE a new user (HTTP method POST) at endpoint /app/new/
