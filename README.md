@@ -4,7 +4,7 @@
 
 # Pinball Game by group CPYSWE
 
-Check the more specific explanation page for the game nder /docs or follow the link
+Check the more specific explanation page for the game under /docs or follow the link
 [Explanations Of The Game](/docs/explanations.md)
 
 ## Game Page
@@ -20,7 +20,7 @@ This is the log in page. It provides the user the ability to create an account a
 ## User Page (After Logging In)
 
 ![Alt text](/images/userPage.PNG "User Page")
-This is the user page. In this page, the user has the ability to register account, log out, delte account, start new game, check personal information, and modify the account. 
+This is the user page. In this page, the user has the ability to register account, log out, delete account, start new game, check personal information, and modify the account. 
 
 # Installation Instruction
 
@@ -73,7 +73,7 @@ Used when user register in front page.
 ## /app/users
 READ a list of all users (HTTP method GET) at endpoint /app/users/
 
-Used when testing, and check whether the register, modify, delte, and record score work.
+Used when testing, and check whether the register, modify, delete, and record score work.
 
 ## /app/user/:id
 READ a single user (HTTP method GET) at endpoint /app/user/:id

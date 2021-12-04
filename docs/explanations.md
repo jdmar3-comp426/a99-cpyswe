@@ -16,8 +16,8 @@
         - Email
         - Password
     
-    - Delte Account
-        - Can only delte after log in
+    - Delete Account
+        - Can only delete after log in
     
     - Check Personal Information
         - Username

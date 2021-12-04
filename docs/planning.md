@@ -7,7 +7,7 @@
 
 TO-DOs:
 
-    - API endpoint for register/log in/modify/delte and the database.
+    - API endpoint for register/log in/modify/delete and the database.
 
     - Connect front end to backend through forms.
 
@@ -49,14 +49,14 @@ TO-DOs:
     - What features should we provide for the user?
     - How do we make the HTML connect to the API?
     - Do the users need to log in to play?
-    - Where should we put features like modify and delte account (after log in)?
+    - Where should we put features like modify and delete account (after log in)?
     - How do we transfer the information stored in database to the frontend?
     - How do we transfer the score in the front end to the API?
 
 ## Group Discussion Result For General Questions:
     - We will make a pinball game that eliminate bricks. The score will be the number of bricks eliminated.
-    - The user will be able to register, log in, delte and modify account.
-    - The user have to be logged in to start game and delte and modify account.
+    - The user will be able to register, log in, delete and modify account.
+    - The user have to be logged in to start game and delete and modify account.
     - The highest score of the user will be recorded in the database (compare the current score with the score in the database). 
 
 ## Plans

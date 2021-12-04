@@ -8,7 +8,7 @@ Used when user register in front page. The frontend HTML has a form element that
 ## /app/users
 READ a list of all users (HTTP method GET) at endpoint /app/users/
 
-Used when testing, and check whether the register, modify, delte, and record score work. The frontend HTML has a form element that will pass the user input to form.js, where the backend endpoint will be called, and it will interact with the database using the HTTP method GET and SQL method SELECT.
+Used when testing, and check whether the register, modify, delete, and record score work. The frontend HTML has a form element that will pass the user input to form.js, where the backend endpoint will be called, and it will interact with the database using the HTTP method GET and SQL method SELECT.
 
 ## /app/user/:id
 READ a single user (HTTP method GET) at endpoint /app/user/:id
@@ -18,7 +18,7 @@ Used when user getting their own information (Only shows username, email, and hi
 ## /app/update/user
 UPDATE a single user (HTTP method PATCH) (the updated user is the current user that is logged in)
 
-Used when user update information. Only username, email, and password. A user cannot modify their highestScore. The frontend HTML has a form element that will pass the user input to form.js, where the backend endpoint will be called, and it will interact with the database using the HTTP method UPDATE and SQL method UPDATE.
+Used when user update information. Only username, email, and password. A user cannot modify their highestScore. The frontend HTML has a form element that will pass the user input to form.js, where the backend endpoint will be called, and it will interact with the database using the HTTP method PATCH and SQL method UPDATE.
 
 ## /app/delete/user
 DELETE a single user (HTTP method DELETE) (the deleted user is the current user that is logged in)
@@ -53,8 +53,8 @@ Used when checking log in credentials. The frontend HTML has a form element that
         - Email
         - Password
     
-    - Delte Account
-        - Can only delte after log in
+    - Delete Account
+        - Can only delete after log in
     
     - Check Personal Information
         - Username
