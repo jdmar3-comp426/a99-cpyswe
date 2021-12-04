@@ -53,26 +53,27 @@ app.get("/app/user/:id", (req, res) => {
 	res.status(200).json(stmt);
 });
 
-// UPDATE a single user (HTTP method PATCH) at endpoint /app/update/user/:id
+// UPDATE a single user (HTTP method PATCH) (the updated user is the current user that is logged in)
 app.patch("/app/update/user", (req, res) => {
 
 	const stmt = db.prepare("UPDATE userinfo SET user = COALESCE(?,user), email = COALESCE(?,email), pass = COALESCE(?,pass) WHERE user = ?").run(req.body.changeduser, req.body.email, md5(req.body.pass), req.body.user)
 	res.status(200).json({"message":`1 record updated: User ${req.body.user} (200)`});
 
 });
-// DELETE a single user (HTTP method DELETE) at endpoint /app/delete/user/:id 
+// DELETE a single user (HTTP method DELETE) (the deleted user is the current user that is logged in)
 app.delete("/app/delete/user", (req, res) => {
 	const stmt = db.prepare("DELETE FROM userinfo WHERE user = ?").run(req.body.user);
 	res.status(200).json({"message":"1 record deleted: ID 2 (200)"});
 });
 
+// UPDATE a single user's highest score (HTTP method PATCH) if the current score is higher than the highestScore in database (the updataed user is the current user that is logged in)
 app.patch("/app/recordscore/user", (req, res) =>  {
 
 	const stmt = db.prepare("UPDATE userinfo SET highest= COALESCE(?,highest) WHERE user = ?").run(req.body.highest, req.body.user)
 	res.status(200).json({"message":`1 record updated: User ${req.body.user} (200)`});
 });
 
-// app/login/user
+// READ a single user (HTTP method GET) given the username and password. If the returned json is empty, than we don't have the user information in the database, so bad credential. Otherwise, logged in.
 app.post("/app/login/user", (req, res) => {	
 
 	const stmt = db.prepare("SELECT * FROM userinfo WHERE user = ? AND pass = ?").get(req.body.user, md5(req.body.pass));
