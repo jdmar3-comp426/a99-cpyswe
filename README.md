@@ -1,3 +1,7 @@
+# Group Playthrough Demo
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LOqO35ayVcM/0.jpg)](https://www.youtube.com/watch?v=LOqO35ayVcM)
+
 # Pinball Game by group CPYSWE
 
 Check the more specific explanation page for the game nder /docs or follow the link
