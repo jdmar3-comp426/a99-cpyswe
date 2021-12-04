@@ -24,6 +24,7 @@ This is the user page. In this page, the user has the ability to register accoun
 
 ## 1. Clone the repository.
 Copy the URL for this repository and clone it in the terminal.
+
     - git clone https://github.com/jdmar3-comp426/a99-cpyswe.git
 
 ## 2. Open the folder in Visual Studio or open the terminal and forward into the folder.
