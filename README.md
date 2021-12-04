@@ -1,7 +1,7 @@
 # Pinball Game by group CPYSWE
 
 Check the more specific explanation page for the game nder /docs or follow the link
-[a relative link](/docs/explanations.md)
+[Explanations Of The Game](/docs/explanations.md)
 
 ## Game Page
 
@@ -59,7 +59,7 @@ Copy the URL for this repository and clone it in the terminal.
 ## 4. Enjoy!
 
 # Backend API Specification
-See the linki for more specific details. [a relative link](/docs/endpoints.md)
+See the linki for more specific details. [API Endpoints](/docs/endpoint.md)
 
 ## /app/new/user
 CREATE a new user (HTTP method POST) at endpoint /app/new/
@@ -98,7 +98,7 @@ Used when checking log in credentials.
 
 # Group Planning 
 
-Refer to this file under /docs for more specific information and other group planning [a relative link](/docs/planning.md)
+Refer to this file under /docs for more specific information and other group planning [Group Planning](/docs/planning.md)
 
 Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
 Panyi Chen: Front End Game Page Design
