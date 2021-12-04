@@ -100,10 +100,14 @@ Used when checking log in credentials.
 
 Refer to this file under /docs for more specific information and other group planning [Group Planning](/docs/planning.md)
 
-Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
-Panyi Chen: Front End Game Page Design
-Yifan Zhou: Check And Connect Frontend to Backend 
-Longtian Ye: Aesthetic Design: Make Page And Game Smooth (CSS framework)
-Rongjie Wang: Front Page & User Page Design
+    - Taixi Lu: Backend API and Database(Server.js/form.js/database.js)
+
+    - Panyi Chen: Front End Game Page Design
+
+    - Yifan Zhou: Check And Connect Frontend to Backend 
+
+    - Longtian Ye: Aesthetic Design: Make Page And Game Smooth (CSS framework)
+
+    - Rongjie Wang: Front Page & User Page Design
 
 
