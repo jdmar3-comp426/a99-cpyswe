@@ -1,6 +1,6 @@
 # Group Playthrough Demo
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/LOqO35ayVcM/0.jpg)](https://www.youtube.com/watch?v=LOqO35ayVcM)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wuG2WgUpZFk/0.jpg)](https://www.youtube.com/watch?v=wuG2WgUpZFk)
 
 # Pinball Game by group CPYSWE
 
