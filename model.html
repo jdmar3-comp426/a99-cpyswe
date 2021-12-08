@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <link rel="stylesheet" href="/game.css">
+        <script src="form.js"></script>
+        <style>
+           #brickboard{width: 100px; height: 30px; background-color: rosybrown; position: absolute; bottom: 0px; left: 250px}
+           #ball{width: 20px; height: 20px; background-color: cyan; border-radius: 50%; position: absolute; bottom: 20px; left: 220px}
+           #div1{width: 600px; height: 600px; border: 1px solid black; position: relative; margin: 100px auto}
+           #brick div{width: 98px; height: 18px; border: 1px solid black; float: left;}
+        </style>
+
+        <div>
+            <div class = "score">
+                <p>Your Score: <span id="myScore"></span></p>
+            </div>
+ 
+            <p id = "sss">
+
+
+
+            </p>
+
+            
+
+            <script>
+                window.myGlobal = 0;
+                document.getElementById("myScore").innerHTML = window.myGlobal;
+
+                const high = document.getElementById("high");
+                high.placeholder = window.myGlobal;
+                high.value = window.myGlobal;
+            </script>
+        </div>
+    
+        <script>
+            window.onload = function() {
+                var Div1 = document.getElementById("div1");
+                var Ball1 = document.getElementById("ball");
+                var Brickboard1 = document.getElementById("brickboard");
+                var Brick1 = document.getElementById("brick");
+                var Bricks = Brick1.getElementsByTagName("div");
+                
+                Dragboard(Brickboard1);
+                createBrick(60);
+
+                var speed_hor = parseInt(Math.random() * 5) + 4;
+                var speed_ver = -(parseInt(Math.random() * 4) + 6 );
+                
+
+                
+
+                setInterval(function(){
+                    Ball1.style.left = Ball1.offsetLeft + speed_hor + 'px';
+                    Ball1.style.top = Ball1.offsetTop + speed_ver + 'px';
+                    if(Ball1.offsetLeft>=580 || Ball1.offsetLeft<= 0){
+                        speed_hor *= -1;
+                    }
+                    if( Ball1.offsetTop<= 0){
+                        speed_ver *= -1;
+                    }
+                    if(Ball1.offsetTop>580){
+                        setTimeout(function(){
+                            window.location.reload();
+                            alert("Game Over");
+                        });
+                    }
+                    if(knock(Ball1, Brickboard1)){
+                        speed_ver *= -1;
+                    }
+
+                    for (var i=0; i < Bricks.length; i++){
+                        if(knock(Bricks[i], Ball1)){
+                            speed_ver *= -1;
+                            Brick1.removeChild(Bricks[i]);
+                            window.myGlobal = window.myGlobal + 1;
+                            document.getElementById("myScore").innerHTML = window.myGlobal;
+
+                            const high = document.getElementById("high");
+                            high.placeholder = window.myGlobal;
+                            high.value = window.myGlobal;
+                            break;
+                        }
+                    }
+                }, 30);
+            }
+            
+            // It defines how the bat would be moved 
+
+            function Dragboard(node){
+                node.onmousedown = function(ev){
+                    var  e = ev || window.event;
+                    var  offset_hor = e.clientX - node.offsetLeft;
+
+                    document.onmousemove = function(ev){
+                        var e = ev || window.event;
+                        var h = e.clientX - offset_hor;
+                        if(h <= 0) {
+                            h = 0;
+                        }
+                        if( h >= 500) {
+                            h = 500;
+                        }
+                        node.style.left = h + 'px';
+                    }
+                   
+                }
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                }
+            }     
+             
+            //  this fuction creates the bricks that the ball breaks
+            
+            function createBrick(n){
+                var nbrick = document.getElementById("brick");
+                for(var i =0; i<n; i++){
+                    var node = document.createElement("div");
+                    node.style.backgroundColor = randomColor();
+                    nbrick.appendChild(node);
+                }
+                var Bricks = nbrick.getElementsByTagName("div");
+                for(var i=0; i<Bricks.length;i++){
+                    Bricks[i].style.left = Bricks[i].offsetLeft + 'px';
+                    Bricks[i].style.top = Bricks[i].offsetTop + 'px';
+                    
+                    
+                }
+                for (var i =0; i<Bricks.length; i++){
+                    Bricks[i].style.position = 'absolute';
+                }
+            }
+            
+            // It will set the bricks to different colors.
+
+            function randomColor(){
+                var str = "rgba(" + parseInt(Math.random()*256) + "," + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + ")";
+                return str;
+            }
+            
+            // it defines how the ball will react when collides into other stuff
+
+            function knock(node1, node2){
+                var h1 = node1.offsetLeft;
+                var r1 = node1.offsetLeft + node1.offsetWidth;
+                var t1 = node1.offsetTop;
+                var b1 = node1.offsetTop + node1.offsetHeight;
+
+                var h2 = node2.offsetLeft;
+                var r2 = node2.offsetLeft + node2.offsetWidth;
+                var t2 = node2.offsetTop;
+                var b2 = node2.offsetTop + node2.offsetHeight;
+
+                if(h2>r1 || r2<h1 || t2>b1 || b2<t1){
+                    return false;
+                }else{
+                    return true;
+                }
+
+            }
+        </script>
+    </head>
+    <body style="background-color:cadetblue;">
+        <form id="scoreForm">
+            <input id="high" type="text" placeholder="" name="highest" value="">
+            <input type="submit" value="Record Your Highest Score ">
+        </form>
+
+        <div id = 'div1'>
+            <div id = 'ball'></div>
+            <div id = 'brickboard'></div>
+            <div id = 'brick'></div>
+
+        </div>
+
+        <div class = "button">
+            <p><a href="index.html" class="button" target="_top">Log Out</a></p>
+        </div>
+
+    </body>
+</html>
+                                   
